@@ -8,7 +8,7 @@ import (
 var defaultClient *Client
 
 func Push(payload *jpush.Payload) (string, error) {
-	if defaultClient != nil {
+	if defaultClient == nil {
 		return "", errors.New("no client found")
 	}
 	return defaultClient.Push(payload)
